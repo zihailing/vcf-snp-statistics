@@ -1,0 +1,7 @@
+library(reshape2)
+library(ggplot2)
+aa<-read.table("snp_sta.txt",header=F)
+bb<-melt(aa,id.vars=c("V1", "V2"))
+pdf("snp_sta.pdf")
+ggplot(bb, aes(x = variable, y = value))+geom_violin(aes(fill = variable))
+dev.off()
